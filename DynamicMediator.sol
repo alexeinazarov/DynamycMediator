@@ -13,8 +13,10 @@ pragma solidity ^0.8.19;
         ‑ Multi‑venue routing   (UniswapV3Adapter, UniV2Adapter, future pool).
         ‑ Price sanity          (oracle deviation check, per‑slice minOut).
         ‑ Gas bounded           (O(#venues) staticcalls; each venue loop ≤5K gas).
-        ‑ No custody of user funds; only protocol collateral -> protocol stable.
-        ‑ Regulatory footprint  (same as Uniswap router wrappers; no KYC/custody).
+        ‑ No custody of **user funds**; swaps protocol‑owned collateral into
+          protocol‑beneficiary stable tokens (USDT today, USDPro later).
+        ‑ Regulatory footprint mirrors DEX aggregator pattern: contract is an
+          execution conduit, not a money‑transmitter (confirm locally with counsel).
 
         References
         ‑ Uniswap V2 Router (EIP‑20 standard interaction)
